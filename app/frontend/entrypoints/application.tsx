@@ -6,37 +6,37 @@ import { Toaster } from "react-hot-toast";
 import { UserProvider } from "../contexts/UserContext";
 import Rewards from "../components/Rewards";
 import Redemptions from "../components/Redemptions";
+import Navbar from "../components/Navbar";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-    <div className="container mt-5">
-        <h1 className="text-primary mb-4 text-center">Rewards Redemption</h1>
-
-        <QueryClientProvider client={queryClient}>
-            <Toaster
-                position="bottom-center"
-                toastOptions={{
-                    success: {
-                        style: {
-                            background: "#d4edda",
-                            color: "#155724",
-                        },
+    <QueryClientProvider client={queryClient}>
+        <Toaster
+            position="bottom-center"
+            toastOptions={{
+                success: {
+                    style: {
+                        background: "#d4edda",
+                        color: "#155724",
                     },
-                    error: {
-                        style: {
-                            background: "#f8d7da",
-                            color: "#721c24",
-                        },
+                },
+                error: {
+                    style: {
+                        background: "#f8d7da",
+                        color: "#721c24",
                     },
-                }}
-            />
-            <UserProvider>
+                },
+            }}
+        />
+        <UserProvider>
+            <Navbar />
+            <div className="container">
                 <Rewards />
                 <Redemptions />
-            </UserProvider>
-        </QueryClientProvider>
-    </div>
+            </div>
+        </UserProvider>
+    </QueryClientProvider>
 );
 
 const rootElement = document.getElementById("root");

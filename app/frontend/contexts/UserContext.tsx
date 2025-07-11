@@ -2,6 +2,8 @@ import React, { createContext, useContext } from "react";
 
 type UserContextType = {
     userId: number;
+    name: string
+    points: number
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -20,9 +22,11 @@ type Props = {
 
 export const UserProvider: React.FC<Props> = ({ children }) => {
     const userId = 11;
+    const name = "Bruno";
+    const points = 1000;
 
     return (
-        <UserContext.Provider value={{ userId }}>
+        <UserContext.Provider value={{ userId, name, points }}>
             {children}
         </UserContext.Provider>
     );
