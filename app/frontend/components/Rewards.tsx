@@ -1,30 +1,28 @@
 import React from "react";
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { getRewards } from "../api/rewards";
 import { createRedemption } from "../api/redemptions";
 import Loading from "./common/Loading";
 import ErrorMessage from "./common/ErrorMessage";
 import toast from "react-hot-toast";
-
-type Reward = {
-    id: number;
-    title: string;
-    description: string;
-    cost: number;
-};
-
-// For now, we assume a static user ID. In a real app, we would fetch this
-const USER_ID = 10;
+import { useUser } from "../contexts/UserContext";
+import type { Reward } from "../types"
 
 const Rewards = () => {
+    const { userId } = useUser();
+    const queryClient = useQueryClient();
+
     const { data, isLoading, isError, error } = useQuery({
         queryKey: ["rewards"],
         queryFn: getRewards
     });
 
     const mutation = useMutation({
-        mutationFn: (rewardId: number) => createRedemption(rewardId, USER_ID),
+        mutationFn: (rewardId: number) => createRedemption(rewardId, userId),
         onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: ["redemptions", userId],
+            });
             toast.success("Reward redeemed successfully!");
         },
         onError: (error: Error) => {

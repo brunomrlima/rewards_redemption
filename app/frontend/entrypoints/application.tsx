@@ -1,9 +1,11 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import "../styles/application.scss"
-import Rewards from "../components/Rewards";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
+import { UserProvider } from "../contexts/UserContext";
+import Rewards from "../components/Rewards";
+import Redemptions from "../components/Redemptions";
 
 const queryClient = new QueryClient();
 
@@ -29,7 +31,10 @@ const App = () => (
                     },
                 }}
             />
-            <Rewards />
+            <UserProvider>
+                <Rewards />
+                <Redemptions />
+            </UserProvider>
         </QueryClientProvider>
     </div>
 );
