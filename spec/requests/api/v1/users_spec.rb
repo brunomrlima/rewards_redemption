@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "Api::V1::Users", type: :request do
-  describe "GET /show" do
+  describe "GET /show_user" do
     it "returns the user data" do
       user = create(:user, name: "Bruno", points: 1000)
 
-      get "/api/v1/users/#{user.id}"
+      get "/api/v1/users/show_user"
 
       expect(response).to have_http_status(:ok)
 

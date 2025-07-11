@@ -3,7 +3,6 @@ class Api::V1::RedemptionsController < ApplicationController
 
   def index
     redemptions = @user.redemptions
-
     render json: redemptions
   end
   def create

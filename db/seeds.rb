@@ -5,9 +5,7 @@ Reward.destroy_all
 User.destroy_all
 
 users = User.create!([
-  { name: "Alice", points: 1500 },
-  { name: "Bob", points: 800 },
-  { name: "Charlie", points: 300 }
+  { name: "Bruno Monteiro", points: 1500 }
 ])
 puts "Created #{users.count} users"
 

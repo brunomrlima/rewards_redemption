@@ -21,7 +21,7 @@ const Rewards = () => {
         mutationFn: (rewardId: number) => createRedemption(rewardId, userId),
         onSuccess: () => {
             queryClient.invalidateQueries({queryKey: ["redemptions", userId]});
-            queryClient.invalidateQueries({ queryKey: ["user", userId] });
+            queryClient.invalidateQueries({ queryKey: ["user"] });
             toast.success("Reward redeemed successfully!");
         },
         onError: (error: Error) => {

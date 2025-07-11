@@ -1,8 +1,6 @@
-export const getUser = async (userId: number) => {
-    const response = await fetch(`/api/v1/users/${userId}`, {
-        headers: {
-            Accept: "application/json",
-        },
+export const currentUser = async () => {
+    const response = await fetch(`/api/v1/users/show_user`, {
+        headers: { Accept: "application/json" },
     });
 
     if (!response.ok) {
