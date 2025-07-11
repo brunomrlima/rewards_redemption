@@ -10,6 +10,7 @@
     "vite-plugin-ruby": "^5.1.0"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.82.0",
     "bootstrap": "^5.3.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

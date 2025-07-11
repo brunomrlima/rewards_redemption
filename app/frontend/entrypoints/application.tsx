@@ -1,20 +1,18 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import "../styles/application.scss"
+import Rewards from "../components/Rewards";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const App = () => (
     <div className="container mt-5">
-        <h1 className="text-primary mb-4">Rewards Redemption App</h1>
+        <h1 className="text-primary mb-4 text-center">Rewards Redemption</h1>
 
-        <div className="card shadow">
-            <div className="card-body">
-                <h5 className="card-title">Welcome!</h5>
-                <p className="card-text">
-                    This is your starting point for the rewards redemption interface.
-                </p>
-                <button className="btn btn-success">Redeem a Reward</button>
-            </div>
-        </div>
+        <QueryClientProvider client={queryClient}>
+            <Rewards />
+        </QueryClientProvider>
     </div>
 );
 
