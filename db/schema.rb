@@ -10,5 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 0) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_11_143508) do
+  create_table "redemptions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "reward_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reward_id"], name: "index_redemptions_on_reward_id"
+    t.index ["user_id"], name: "index_redemptions_on_user_id"
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.integer "cost", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "points", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "redemptions", "rewards"
+  add_foreign_key "redemptions", "users"
 end
