@@ -9,10 +9,10 @@ RSpec.describe "Api::V1::Rewards", type: :request do
 
       expect(response).to have_http_status(:ok)
 
-      puts response.body
       json = JSON.parse(response.body)
       expect(json.length).to eq(1)
       expect(json).to contain_exactly({
+        "id" => reward.id,
         "title" => reward.title,
         "description" => reward.description,
         "cost" => reward.cost
