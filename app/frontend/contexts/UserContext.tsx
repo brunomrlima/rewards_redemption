@@ -1,4 +1,8 @@
 import React, { createContext, useContext } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getUser } from "../api/users";
+import Loading from "../components/common/Loading";
+import ErrorMessage from "../components/common/ErrorMessage";
 
 type UserContextType = {
     userId: number;
@@ -21,12 +25,17 @@ type Props = {
 };
 
 export const UserProvider: React.FC<Props> = ({ children }) => {
-    const userId = 11;
-    const name = "Bruno";
-    const points = 1000;
+    const userId = 13;
+    const { data: user, isLoading, isError, error } = useQuery({
+        queryKey: ["user", userId],
+        queryFn: () => getUser(userId),
+    });
+
+    if (isLoading) return <Loading />;
+    if (isError || !user) return <ErrorMessage message={(error as Error).message} />;;
 
     return (
-        <UserContext.Provider value={{ userId, name, points }}>
+        <UserContext.Provider value={{ userId, name: user.name, points: user.points }}>
             {children}
         </UserContext.Provider>
     );
