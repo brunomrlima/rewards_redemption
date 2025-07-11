@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :rewards, only: :index
-      resources :redemptions, only: :create
+      resources :redemptions, only: [:index, :create]
     end
   end
 
