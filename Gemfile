@@ -2,9 +2,11 @@ source "https://rubygems.org"
 
 gem "active_model_serializers"
 gem "bootsnap", require: false
+gem "httparty"
 gem "puma", ">= 5.0"
 gem "rails", "~> 8.0.2"
 gem "sqlite3", ">= 2.1"
+gem "thor"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "vite_rails"
 
