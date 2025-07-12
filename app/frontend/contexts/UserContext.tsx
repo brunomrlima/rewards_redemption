@@ -5,7 +5,7 @@ import Loading from "../components/common/Loading";
 import ErrorMessage from "../components/common/ErrorMessage";
 import type { UserContextType } from "../types"
 
-const UserContext = createContext<UserContextType | undefined>(undefined);
+export const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const useUser = () => {
     const context = useContext(UserContext);

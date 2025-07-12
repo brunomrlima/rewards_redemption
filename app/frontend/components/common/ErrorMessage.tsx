@@ -5,7 +5,7 @@ type Props = {
 };
 
 const ErrorMessage: React.FC<Props> = ({ message }) => (
-    <div className="alert alert-danger text-center my-4">
+    <div role="alert" className="alert alert-danger text-center my-4">
         <strong>Error:</strong> {message}
     </div>
 );
