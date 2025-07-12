@@ -2,7 +2,8 @@ class Redemption < ApplicationRecord
   belongs_to :user
   belongs_to :reward
 
-  validate :enough_points
+  validates :reward, presence: true
+  validate :enough_points, if: -> { reward.present? }
 
   after_create :update_points
 
