@@ -11,3 +11,9 @@ export type Redemption = {
     reward_id: number;
     reward: Reward;
 };
+
+export type UserContextType = {
+    userId: number;
+    name: string
+    points: number
+};

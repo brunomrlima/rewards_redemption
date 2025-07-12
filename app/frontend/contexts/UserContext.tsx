@@ -3,12 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { currentUser } from "../api/users";
 import Loading from "../components/common/Loading";
 import ErrorMessage from "../components/common/ErrorMessage";
-
-type UserContextType = {
-    userId: number;
-    name: string
-    points: number
-};
+import type { UserContextType } from "../types"
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
@@ -31,7 +26,7 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
     });
 
     if (isLoading) return <Loading />;
-    if (isError || !user) return <ErrorMessage message={(error as Error).message} />;;
+    if (isError || !user) return <ErrorMessage message={(error as Error).message} />;
 
     return (
         <UserContext.Provider value={{ userId: user.id, name: user.name, points: user.points }}>
