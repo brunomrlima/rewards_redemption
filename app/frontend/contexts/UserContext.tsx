@@ -3,9 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import { currentUser } from "../api/users";
 import Loading from "../components/common/Loading";
 import ErrorMessage from "../components/common/ErrorMessage";
-import type { UserContextType } from "../types"
+import type { User } from "../types"
 
-export const UserContext = createContext<UserContextType | undefined>(undefined);
+export const UserContext = createContext<User | undefined>(undefined);
 
 export const useUser = () => {
     const context = useContext(UserContext);

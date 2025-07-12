@@ -2,6 +2,7 @@ import React from "react"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { render } from "@testing-library/react"
 import { UserContext } from "../contexts/UserContext"
+import { mockUser } from "./factories/user";
 
 export function renderWithProviders(ui: React.ReactElement) {
     const testQueryClient = new QueryClient({
@@ -13,15 +14,9 @@ export function renderWithProviders(ui: React.ReactElement) {
         },
     })
 
-    const user = {
-        userId: 1,
-        name: "Test User",
-        points: 100,
-    }
-
     return render(
         <QueryClientProvider client={testQueryClient}>
-            <UserContext.Provider value={user}>
+            <UserContext.Provider value={mockUser}>
                 {ui}
             </UserContext.Provider>
         </QueryClientProvider>
