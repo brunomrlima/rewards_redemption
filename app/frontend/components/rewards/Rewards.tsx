@@ -1,9 +1,9 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getRewards } from "../api/rewards";
-import Loading from "./common/Loading";
-import ErrorMessage from "./common/ErrorMessage";
-import type { Reward } from "../types"
+import { getRewards } from "../../api/rewards";
+import Loading from "../common/Loading";
+import ErrorMessage from "../common/ErrorMessage";
+import type { Reward } from "../../types"
 import { RewardCard } from "./RewardCard";
 
 const Rewards = () => {

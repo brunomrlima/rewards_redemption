@@ -4,8 +4,8 @@ import "../styles/application.scss"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import { UserProvider } from "../contexts/UserContext";
-import Rewards from "../components/Rewards";
-import Redemptions from "../components/Redemptions";
+import Rewards from "../components/rewards/Rewards";
+import Redemptions from "../components/redemptions/Redemptions";
 import Navbar from "../components/Navbar";
 
 const queryClient = new QueryClient();

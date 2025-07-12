@@ -1,6 +1,6 @@
 import React from "react"
 import RedeemButton from "./RedeemButton"
-import type { Reward } from "../types"
+import type { Reward } from "../../types"
 
 type Props = {
     reward: Reward

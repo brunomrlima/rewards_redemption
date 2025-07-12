@@ -1,10 +1,10 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getRedemptions } from "../api/redemptions";
-import Loading from "./common/Loading";
-import ErrorMessage from "./common/ErrorMessage";
-import { useUser } from "../contexts/UserContext";
-import type { Redemption } from "../types"
+import { getRedemptions } from "../../api/redemptions";
+import Loading from "../common/Loading";
+import ErrorMessage from "../common/ErrorMessage";
+import { useUser } from "../../contexts/UserContext";
+import type { Redemption } from "../../types"
 import { RedemptionCard } from "./RedemptionCard";
 
 const Redemptions: React.FC = () => {

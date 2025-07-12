@@ -1,5 +1,5 @@
 import React from "react"
-import type { Redemption } from "../types"
+import type { Redemption } from "../../types"
 
 type Props = {
     redemption: Redemption
