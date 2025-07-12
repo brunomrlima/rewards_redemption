@@ -16,8 +16,6 @@ class Redemption < ApplicationRecord
   end
 
   def update_points
-    user.points -= reward.cost
-
-    user.save
+    user.decrement!(:points, reward.cost)
   end
 end
