@@ -18,3 +18,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop-rails-omakase", require: false
 end
+
+group :development do
+  gem "foreman"
+end
