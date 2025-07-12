@@ -32,7 +32,9 @@ bin/cli redeem <REWARD_ID>  # Redeem a reward for the last user in the database
 ```
 
 ### Running tests
-#### Backend
+#### Backend and E2E specs
+I'm using RSpec for backend specs. And for end-to-end specs I'm using Capybara. Running the following command will run
+all the backend and E2E specs.
 ```bash
 bundle exec rspec
 ```
