@@ -1,5 +1,6 @@
 # Rewards Redemption
-Please check the assumptions portion at the end of this file
+Please make sure to read the [Assumptions](#assumptions) and [Technical Decisions](#technical-decisions) sections before analyzing the code.
+
 
 ### Prerequisites
 - **Ruby** `3.4.3`
@@ -39,6 +40,12 @@ all the backend and E2E specs.
 bundle exec rspec
 ```
 
+#### Frontend (jest)
+For component tests, I'm using `@testing-library/react`. The command below will run all frontend tests.
+```bash
+yarn jest
+```
+
 ### Running code checker
 ```bash
 rubocop
@@ -68,6 +75,16 @@ Since this is a take-home challenge, I am assuming that there are no expectation
 hence there are no deployment instructions
 
 ### Technical Decisions
+### Why I Included a User Model
+While the challenge requirements could have been fulfilled without a full-fledged `User` model, I intentionally 
+included one for scalability and future-proofing.
+
+In real-world applications, user data often expands in complexity — supporting authentication, profiles, roles, 
+preferences, and audit trails. By modeling `User` explicitly, I’ve created a more realistic foundation that could 
+be extended with features like login systems (e.g., Devise), user-specific analytics, or admin controls, 
+without requiring major refactoring later.
+
+This approach aligns with long-term maintainability and mirrors how production systems tend to evolve.
 #### Why Vite?
 [Vite](https://vitejs.dev/) was chosen as the frontend build tool for its blazing-fast hot module replacement, 
 modern ES module support, and great integration with React and Rails via `vite-plugin-ruby`. 
