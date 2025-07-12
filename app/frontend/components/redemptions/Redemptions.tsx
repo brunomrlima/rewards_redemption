@@ -1,20 +1,15 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useUser } from "../../contexts/UserContext";
 import { getRedemptions } from "../../api/redemptions";
+import { RedemptionCard } from "./RedemptionCard";
 import Loading from "../common/Loading";
 import ErrorMessage from "../common/ErrorMessage";
-import { useUser } from "../../contexts/UserContext";
 import type { Redemption } from "../../types"
-import { RedemptionCard } from "./RedemptionCard";
 
 const Redemptions: React.FC = () => {
     const { userId } = useUser();
-    const {
-        data: redemptions,
-        isLoading,
-        isError,
-        error,
-    } = useQuery({
+    const {data: redemptions, isLoading, isError, error,} = useQuery({
         queryKey: ["redemptions", userId],
         queryFn: () => getRedemptions(userId),
     });

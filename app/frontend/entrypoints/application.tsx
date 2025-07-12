@@ -1,9 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import "../styles/application.scss"
+import { UserProvider } from "../contexts/UserContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
-import { UserProvider } from "../contexts/UserContext";
 import Rewards from "../components/rewards/Rewards";
 import Redemptions from "../components/redemptions/Redemptions";
 import Navbar from "../components/Navbar";
