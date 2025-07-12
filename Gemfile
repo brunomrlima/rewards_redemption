@@ -12,10 +12,12 @@ gem "vite_rails"
 
 group :development, :test do
   gem "brakeman", require: false
+  gem "capybara"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "factory_bot_rails"
   gem "rspec-rails"
   gem "rubocop-rails-omakase", require: false
+  gem "selenium-webdriver"
 end
 
 group :development do
