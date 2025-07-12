@@ -5,6 +5,7 @@ import Loading from "./common/Loading";
 import ErrorMessage from "./common/ErrorMessage";
 import { useUser } from "../contexts/UserContext";
 import type { Redemption } from "../types"
+import { RedemptionCard } from "./RedemptionCard";
 
 const Redemptions: React.FC = () => {
     const { userId } = useUser();
@@ -25,17 +26,9 @@ const Redemptions: React.FC = () => {
         <div className="container mt-5">
             <h2 className="mb-4 text-center">Redemption History</h2>
             <div className="row">
-                {redemptions?.map((r: Redemption) => (
-                    <div key={r.id} className="col-md-4 mb-3">
-                        <div className="card shadow">
-                            <div className="card-body">
-                                <h5 className="card-title">{r.reward.title}</h5>
-                                <p className="card-text">{r.reward.description}</p>
-                                <span className="badge bg-secondary">
-                                  Redeemed for {r.reward.cost} pts
-                                </span>
-                            </div>
-                        </div>
+                {redemptions?.map((redemption: Redemption) => (
+                    <div key={redemption.id} className="col-md-4 mb-3">
+                        <RedemptionCard redemption={redemption} />
                     </div>
                 ))}
             </div>
