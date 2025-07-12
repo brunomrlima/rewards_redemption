@@ -7,4 +7,11 @@ export default defineConfig({
     RubyPlugin(),
       react(),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        quietDeps: true,
+      },
+    },
+  }
 })
