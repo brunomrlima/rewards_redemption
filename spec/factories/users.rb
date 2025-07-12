@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    name { Faker::Name.name }
+    name { "User name" }
     points { 1000 }
   end
 end

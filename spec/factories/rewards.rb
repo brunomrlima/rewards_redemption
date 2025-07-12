@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :reward do
-    title { Faker::Lorem.sentence }
-    description { Faker::Lorem.paragraph }
+    title { "Reward title" }
+    description { "Reward description" }
     cost { 200 }
   end
 end
